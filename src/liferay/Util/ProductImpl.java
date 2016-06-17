@@ -8,7 +8,7 @@ import liferay.domain.Order;
 
 public class ProductImpl {
 	
-	public static ArrayList<Order> loadProdcutsToOrder(ArrayList<Product> products){	
+	public static ArrayList<Order> loadProductsToOrder(ArrayList<Product> products){	
 		ArrayList<Order> input = new ArrayList<Order>();
 		for (Product x:products){
 			input.add(new Order(SalesTaxUtil.CalculateSalesTax(x), 1));
