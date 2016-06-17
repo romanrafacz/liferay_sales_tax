@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
+import liferay.domain.Item;
 import liferay.domain.Order;
 import liferay.domain.Product;
+import liferay.Util.OrderImpl;
 import liferay.Util.ProductImpl;
 import liferay.Util.SalesTaxUtil;
 
@@ -13,22 +15,26 @@ public class SalesTaxApp {
 	  
 	public static void main(String args[]){
 		
-		//Load shopping items to Product object - Product(item, price, imported, taxExemption, salesTax(default to 0.00);
+		ArrayList<Item> items = new ArrayList<Item>();
+		/*Input 1 - Works
+		items.add(new Item("book", 12.49));
+		items.add(new Item("music cd", 14.99));
+		items.add(new Item("chocolate bar", .85));
+		*/
 		
-		ArrayList<Product> products = new ArrayList<Product>();
-		//products.add(new Product("Book", 12.49, false, true, 0.00));
-		//products.add(new Product("CD", 14.99, false, false, 0.00));
-		//products.add(new Product("Chocolate Bar", .85, false, true, 0.00));
+		//Input 2 - Works
+		//items.add(new Item("imported box of chocolates", 10.00));
+		//items.add(new Item("imported bottle of perfume", 47.50));
 		
-		//products.add(new Product("Box of Chocolates", 10.00, true, true, 0.00));
-		//products.add(new Product("Bottle of Perfume", 47.50, true, false, 0.00));
+		//Input 3
+		items.add(new Item("imported bottle of perfume", 27.99));
+		items.add(new Item("bottle of perfume", 18.99));
+		items.add(new Item("packet of headache pills", 9.75));
+		items.add(new Item("imported box of chocolates", 11.25));
 		
-		products.add(new Product("Imported Bottle of Perfume", 27.99, true, false, 0.00));
-		products.add(new Product("Bottle of Perfume", 18.99, false, false, 0.00));
-		products.add(new Product("Packet of Headache Pills", 9.75, false, true, 0.00));
-		products.add(new Product("Importe Box of Chocolates", 11.25, true, true, 0.00));
-		
-        ArrayList<Order> order = ProductImpl.loadProductsToOrder(products);        
+	    ArrayList<Product> products = ProductImpl.loadItemsToProduct(items);
+
+        ArrayList<Order> order = OrderImpl.loadProductsToOrder(products);        
 		double SalesTax = 0.00;
 		double Total = 0.00;
 	
