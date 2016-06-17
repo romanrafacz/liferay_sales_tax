@@ -10,27 +10,19 @@ import liferay.domain.Product;
 import liferay.Util.OrderImpl;
 import liferay.Util.ProductImpl;
 import liferay.Util.SalesTaxUtil;
+import liferay.Util.SubmitOrder;
 
 public class SalesTaxApp {
 	  
 	public static void main(String args[]){
 		
-		ArrayList<Item> items = new ArrayList<Item>();
-		/*Input 1 - Works
-		items.add(new Item("book", 12.49));
-		items.add(new Item("music cd", 14.99));
-		items.add(new Item("chocolate bar", .85));
-		*/
+		final String input1 = "input1";
+		final String input2 = "input2";
+		final String input3 = "input3";
+		final String all = "all";
 		
-		//Input 2 - Works
-		//items.add(new Item("imported box of chocolates", 10.00));
-		//items.add(new Item("imported bottle of perfume", 47.50));
-		
-		//Input 3
-		items.add(new Item("imported bottle of perfume", 27.99));
-		items.add(new Item("bottle of perfume", 18.99));
-		items.add(new Item("packet of headache pills", 9.75));
-		items.add(new Item("imported box of chocolates", 11.25));
+		//Add one of the input variables to submit an order(input 1-3)
+		ArrayList<Item> items = SubmitOrder.submitOrder(input1);
 		
 	    ArrayList<Product> products = ProductImpl.loadItemsToProduct(items);
 
@@ -38,7 +30,7 @@ public class SalesTaxApp {
 		double SalesTax = 0.00;
 		double Total = 0.00;
 	
-		//Sales Details for Input
+		//Print sale details based on input/order items
 		System.out.println("Order");
 		System.out.println();
 		for (Order x:order){
@@ -55,6 +47,6 @@ public class SalesTaxApp {
 		System.out.println("Sales tax: " + String.format("%.2f", SalesTax));
 		System.out.println("Total: " + String.format("%.2f", Total)  );
 		System.out.println();
-			
+		
 	}
 }
