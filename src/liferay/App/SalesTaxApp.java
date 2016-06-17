@@ -56,10 +56,6 @@ public class SalesTaxApp {
 		double input3Total = 0.00;
 	
 		//Sales Details for Input 1
-		System.out.println("Sales Tax App");
-		System.out.println();
-		System.out.println("Order Details Input 1");
-		System.out.println();
 		for (Order x:input1){
 			System.out.println(x.getQuantity() + " " + x.getProduct().getItem() + " at " + x.getProduct().getPrice());
 		}	
