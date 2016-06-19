@@ -26,20 +26,20 @@ public class SalesTaxApp {
 	    
 	    scanner.close();
 		
-		//Add one of the input variables to submit an order(4-2, 1-all, or 0-null)
-		ArrayList<Item> items = ProcessInput.submitOrder(response);
+	    //Add one of the input variables to submit an order(4-2, 1-all, or 0-null)
+	    ArrayList<Item> items = ProcessInput.submitOrder(response);
 		
 		//Loads items to a product object which returns an array used to create an order object
 	    ArrayList<Product> products = ShoppingCart.loadItemsToProduct(items);
 	    
 	    //products array is used to create an order array for processing.
-        ArrayList<Order> order = ShoppingCart.loadProductsToOrder(products);        
-		double SalesTax = 0.00;
-		double Total = 0.00;
-	
-		//Print sale details
-		System.out.println();
-		System.out.println("Input" + response);
+	    ArrayList<Order> order = ShoppingCart.loadProductsToOrder(products);        
+	    double SalesTax = 0.00;
+	    double Total = 0.00;
+	    
+	    //Print sale details
+	    System.out.println();
+	    System.out.println("Input" + response);
 		System.out.println();
 		for (Order x:order){
 			System.out.println(x.getQuantity() + " " + x.getProduct().getItem() + " at " + String.format("%.2f", x.getProduct().getPrice()));
