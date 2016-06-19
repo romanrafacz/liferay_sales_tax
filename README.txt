@@ -12,9 +12,10 @@ sales tax are that for a tax rate of n%, a shelf price of p contains
 (np/100 rounded up to the nearest 0.05) amount of sales tax.
 
 
-How to run
+How to run:
 java -jar /liferay_sales_tax/target/Liferay_sales_tax-0.0.1-SNAPSHOT.jar
 
-App Structure
-SalesTaxApp.java ties everything together
-Inputed items get loaded into an Item object which gets loaded into a Product object(
+Program will ask for input. 1, 2, 3, etc... based on package order.
+
+
+

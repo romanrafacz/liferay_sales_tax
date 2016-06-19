@@ -44,6 +44,7 @@ public class SalesTaxUtil {
 		return product;
 	}
 	
+	//Used to round up to the nearest .005
 	public static BigDecimal getRound(BigDecimal salesTax){
 			salesTax = salesTax.divide(ROUND_FACTOR);
 			salesTax = new BigDecimal(Math.ceil(salesTax.doubleValue()));

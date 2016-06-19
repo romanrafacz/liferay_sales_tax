@@ -1,26 +1,30 @@
 package liferay.App;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
+
 import javax.swing.JOptionPane;
 
 import liferay.domain.Item;
 import liferay.domain.Order;
 import liferay.domain.Product;
 import liferay.ShoppingCart.ShoppingCart;
-import liferay.Util.SalesTaxUtil;
 import liferay.Util.ProcessInput;
 
 public class SalesTaxApp {
 	  
 	public static void main(String args[]){
-		
-		//Start GUI for Input selection
-		String[] options = new String[] {"cancel", "all", "input3", "input2", "input1"};
-	    int response = JOptionPane.showOptionDialog(null, "Select a input", "Sales Tax App",
-	          JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
-	          null, options, options[0]);
-		
+	    
+	    // create a scanner so we can read the command-line input
+	    Scanner scanner = new Scanner(System.in);
+
+	    // prompt for the user for input based on package.
+	    System.out.print("Enter your order. 1 for Input 1, 2 for Input 2, 3 for Input 3, 4 for all items: ");
+	    
+	    // get their input as a String
+	    int response = scanner.nextInt();
+	    
+	    scanner.close();
 		
 		//Add one of the input variables to submit an order(4-2, 1-all, or 0-null)
 		ArrayList<Item> items = ProcessInput.submitOrder(response);
@@ -34,7 +38,8 @@ public class SalesTaxApp {
 		double Total = 0.00;
 	
 		//Print sale details
-		System.out.println("Input");
+		System.out.println();
+		System.out.println("Input" + response);
 		System.out.println();
 		for (Order x:order){
 			System.out.println(x.getQuantity() + " " + x.getProduct().getItem() + " at " + String.format("%.2f", x.getProduct().getPrice()));

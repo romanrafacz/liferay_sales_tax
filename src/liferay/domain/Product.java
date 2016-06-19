@@ -6,13 +6,10 @@ public class Product implements ProductIntf{
 	
 	private double price;
 	
-	//Boolean for imported items
 	private Boolean imported;
-	
-	//Tax Exempt
+
 	private Boolean taxExemption;
 	
-	//private double salesTax;
 	private double salesTax;
 	
 	public Product(String item, double price, Boolean imported, Boolean taxExemption, double salesTax){
