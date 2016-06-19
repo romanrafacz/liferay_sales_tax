@@ -1,6 +1,6 @@
 package liferay.domain;
 
-public class Product {
+public class Product implements ProductIntf{
 	
 	private String item;
 	

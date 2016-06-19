@@ -2,9 +2,11 @@ package liferay.Util;
 
 import java.util.ArrayList;
 
+//This class processes the input from the users
+
 import liferay.domain.Item;
 
-public class SubmitOrder {
+public class ProcessInput {
 	
 	public static ArrayList<Item> submitOrder(int input){
 		

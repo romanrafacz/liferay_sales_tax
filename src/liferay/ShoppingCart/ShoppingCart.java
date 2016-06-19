@@ -1,11 +1,15 @@
-package liferay.domain;
+package liferay.ShoppingCart;
 
 import java.util.ArrayList;
 
-//Loads Sales items from the user to the Product Object, returns an array.
+import liferay.Util.SalesTaxUtil;
+import liferay.domain.Item;
+import liferay.domain.Order;
+import liferay.domain.Product;
 
-public class ProductImpl {
+public class ShoppingCart {
 	
+	//Loads an Array of inputed items to an array of Product objects
 	public static ArrayList<Product> loadItemsToProduct(ArrayList<Item> items){
 		ArrayList<Product> shoppingCartItems = new ArrayList<Product>();
 		for(Item x:items){
@@ -21,5 +25,17 @@ public class ProductImpl {
 		}
 		return shoppingCartItems;
 	}
+	
+	//Loads an Array of Product objects into an array of Order items.
+	public static ArrayList<Order> loadProductsToOrder(ArrayList<Product> products){	
+		ArrayList<Order> order = new ArrayList<Order>();
+		for (Product x:products){
+			order.add(new Order(SalesTaxUtil.CalculateSalesTax(x), 1));
+		}
+		return order;
+	}
+	
+	
 
 }
+
