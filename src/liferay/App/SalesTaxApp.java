@@ -40,20 +40,20 @@ public class SalesTaxApp {
 	    //Print sale details
 	    System.out.println();
 	    System.out.println("Input" + response);
-		System.out.println();
-		for (Order x:order){
-			System.out.println(x.getQuantity() + " " + x.getProduct().getItem() + " at " + String.format("%.2f", x.getProduct().getPrice()));
-		}
-		System.out.println();
-		System.out.println("Receipt");
-		System.out.println();
-		for (Order x:order){
-			System.out.println(x.getQuantity() + " " + x.getProduct().getItem() + " at " + String.format("%.2f", (x.getProduct().getPrice() + x.getProduct().getSalesTax())));
-			SalesTax = SalesTax + x.getProduct().getSalesTax();
-			Total = (Total + (x.getProduct().getPrice() + x.getProduct().getSalesTax()));
-		}
-		System.out.println("Sales tax: " + String.format("%.2f", SalesTax));
-		System.out.println("Total: " + String.format("%.2f", Total)  );
+	    System.out.println();
+	    for (Order x:order){
+	    	System.out.println(x.getQuantity() + " " + x.getProduct().getItem() + " at " + String.format("%.2f", x.getProduct().getPrice()));
+	    	}
+	    System.out.println();
+	    System.out.println("Receipt");
+	    System.out.println();
+	    for (Order x:order){
+	    	System.out.println(x.getQuantity() + " " + x.getProduct().getItem() + " at " + String.format("%.2f", (x.getProduct().getPrice() + x.getProduct().getSalesTax())));
+	    	SalesTax = SalesTax + x.getProduct().getSalesTax();
+	    	Total = (Total + (x.getProduct().getPrice() + x.getProduct().getSalesTax()));
+	    }
+	    System.out.println("Sales tax: " + String.format("%.2f", SalesTax));
+	    System.out.println("Total: " + String.format("%.2f", Total)  );
 	
 	}
 }
