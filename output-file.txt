@@ -1,1 +1,0 @@
-Product(Item:Book, price: 12.49, type: false, tax exemption: true)
