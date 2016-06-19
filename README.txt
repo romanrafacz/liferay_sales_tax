@@ -13,7 +13,7 @@ sales tax are that for a tax rate of n%, a shelf price of p contains
 
 
 How to run - execute the jar file the directory of the liferay_sales_tax folder
-java -jar /liferay_sales_tax/Liferay_sales_tax-0.0.1-SNAPSHOT.jar
+java -jar /liferay_sales_tax/target/Liferay_sales_tax-0.0.1-SNAPSHOT.jar
 
 Program will ask for input. 1, 2, 3, etc... based on package order.
 
